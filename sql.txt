@@ -1,0 +1,55 @@
+SELECT *
+FROM `students`
+WHERE YEAR (`date_of_birth`)  = 1990;
+
+SELECT *
+FROM `courses`
+WHERE `cfu` > 10;
+
+SELECT *
+FROM `students`
+WHERE YEAR (`date_of_birth`) < 1995;
+
+SELECT *
+FROM `courses`
+WHERE `year` = 1
+AND `period` = 'I semestre';
+
+SELECT *
+FROM `exams`
+WHERE DATE = '2020-06-20'
+AND `hour` > '14:00:00';
+
+SELECT *
+FROM `degrees`
+WHERE `level`= 'magistrale';
+
+SELECT *
+FROM `departments`;
+
+SELECT *
+FROM `teachers`
+WHERE `phone` IS NULL;
+
+INSERT INTO `students` (degree_id, name, surname, date_of_birth, fiscal_code, enrolment_date, registration_number, email)
+VALUE ('23', 'Benedetta', 'Galdo', '1998-07-23', 'GLDBDT98L63G482E', '2023-03-23', '632333', 'galbobenedetta@gmail.com');
+
+UPDATE `teachers`
+SET `office_number` = '126'
+WHERE `id` = 58;
+
+DELETE FROM `students`
+WHERE `degree_id` = 23;
+
+SELECT `enrolment_date`, COUNT(*)
+FROM `students`
+GROUP BY `enrolment_date`
+ORDER BY `enrolment_date`;
+
+SELECT `office_address`, COUNT(*)
+FROM `teachers`
+GROUP BY `office_address`;
+
+SELECT `exam_id`, AVG(vote)
+FROM `exam_student`
+GROUP BY `exam_id`;
